@@ -5,17 +5,17 @@ const socketio = require('socket.io');
 const Filter =require('bad-words');
 const { time } = require('console');
 const { create } = require('domain');
-const {generateMessage} = require('./utils/messages');
-const { generateLocation } = require('./utils/location-message');
-const {addUser , removeUser , getUser ,getUsersInRoom} =  require('./utils/users');
+const {generateMessage} = require('./src/utils/messages');
+const { generateLocation } = require('./src/utils/location-message');
+const {addUser , removeUser , getUser ,getUsersInRoom} =  require('./src/utils/users');
 const { Socket } = require('dgram');
 const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
 
 //let count=0;
-const port = process.env.PORT || 3000
-const publicDirectoryPath = path.join(__dirname, '../public')
+const port = process.env.PORT || 5000
+const publicDirectoryPath = path.join(__dirname, './public')
 
 app.use(express.static(publicDirectoryPath))
 io.on('connection',(socket) =>{
